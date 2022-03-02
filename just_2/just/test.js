@@ -25,7 +25,7 @@ var pickedWordsOfDay = ["", "", "", ""];
 
 var prevSelTileRow = [-1, -1, -1, -1];
 
-var wordFound = 0;
+var wordsFound = 0;
 
 function SetUpGame() {
 
@@ -227,7 +227,8 @@ $(document).ready(function () {
 
         if (words.includes(strChoosenWord) == true) {
 
-            wordFound++;
+            wordsFound++;
+
             $("#n" + prevSelTileRow[0] + 0).css("background-color", "green").delay(300);
             $("#n" + prevSelTileRow[1] + 1).css("background-color", "green").delay(300);
             $("#n" + prevSelTileRow[2] + 2).css("background-color", "green").delay(300);
@@ -258,6 +259,10 @@ $(document).ready(function () {
             //JustSleep(1e5);
             RearangeTiles("red");
             ResetPrevSelection();
+        }
+
+        if (wordsFound == 4) {
+            alert("GAME OVER");
         }
     });
 
